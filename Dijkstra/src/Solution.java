@@ -15,7 +15,7 @@ public class Solution {
 		
 		
 		 int index=check.indexOf(b);
-		System.out.println(index);
+		System.out.println(index+"");
 	
 	}
 	
