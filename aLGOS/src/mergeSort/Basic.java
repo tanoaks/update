@@ -9,7 +9,7 @@ public class Basic {
 	void printArry()
 	{
 		for(int i=0;i<arr.length;i++)
-			System.out.print(out[i]); //+", a            b  "  + arr[i]    
+			System.out.print(arr[i]+","); //+", a            b  "  + arr[i]    
 		System.out.println("");
 	}
 	
@@ -19,55 +19,57 @@ public class Basic {
 		out=new int[arr.length];
 	}
 	
-	void totalMerge()
+	void sort(int arr[])
 	{
-		
-		
+		int aux[]=new int[arr.length];
+		sort(arr, aux, arr.length-1, 0);
 	}
 	
-	void merge(int high ,int low)
-	{	int i=0,j=0,k=0;
+	void sort(int arr[],int aux[] ,int high ,int low)
+	{	if(high<low||high==0) return;
+		int mid =0;
+		mid=(high+low)/2+low;
+		if(high<=mid||high==low) return;
+		sort( arr, aux , mid , low);
+		sort( arr, aux, high , mid+1);
+		merge( arr, aux , high , low,mid);
+	}
 	
-	int mid=(high+low)/2+1;
-	j=mid;
+	void merge(int arr[],int aux[] ,int high ,int low,int mid)
+	{	int i=0,j=0;
+	for(int arrtemp=0;arrtemp<arr.length;arrtemp++)
+		aux[arrtemp]=arr[arrtemp];
+	
+	j=mid+1;
 	i=low;
-	k=low;
-	n=high-low;
-	if(n>2){
-		//System.out.println(n);
-	merge(mid,low);
-	merge(high,mid);}
-	while(k<=n)
+	
+	
+	for(int k=low;k<=high;k++)
 		{
-		if(n>2){
-		if(j>high)
-			out[k++]=arr[i++];
-		else if(i>mid)
-			out[k++]=arr[j++];
-		else if(arr[i]>arr[j]){
-			out[k++]=arr[j++];
+		{
+			 if(i>mid)
+					arr[k]=aux[j++];
+			 else if(j>high)
+			arr[k]=aux[i++];
+		
+		else if(aux[i]>aux[j]){
+			arr[k]=aux[j++];
 		}
-		else if(arr[i]<arr[j])
+		else 
 		{
-			out[k++]=arr[i++];
+			arr[k]=aux[i++];
 			
 		}		
 			
 		}
-		else
-			{if(arr[i]>arr[j])
-				{out[i]=arr[j];
-				out[j]=arr[i];
-				}
-			else
-			{
-				out[i]=arr[i];
-				out[j]=arr[j];}
-			System.out.println(arr[i]+"   "+arr[j]);
-			break;
+		
+			
+			//System.out.println(arr[i]+"   "+arr[j]);
+			
 			}
-		printArry();}
+		//printArry();
+	}
 		
 	}
 
-}
+
