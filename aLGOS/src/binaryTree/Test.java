@@ -10,8 +10,12 @@ public class Test {
 		bt.put(9, 13);
 		bt.put(6, 14);
 		bt.put(4, 15);bt.put(5, 16);
-	System.out.println(bt.get(9).getvalue());	
+		int a[]= new int[11];
+		bt.getsorted(a,1);
 		
+	System.out.println(bt.get(4).getvalue());	
+		for(int i=0;i<a.length;i++)
+		{System.out.println(a[i]);}
 		
 	
 	}

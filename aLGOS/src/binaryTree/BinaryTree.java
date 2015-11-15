@@ -6,15 +6,30 @@ public class BinaryTree {
 	private int value;
 	private BinaryTree left;
 	private BinaryTree right;
-	private BinaryTree node;
+	
+	
 	
 
 	public int getvalue()
 	{return this.value;}
 	
+	
+	public void getsorted(int[] a, Integer count)
+	{	if(left!=null)
+		left.getsorted( a,count);
+		a[count++]=this.value;
+		if(right!=null)
+		right.getsorted(a,count);
+		
+		
+		
+	}
+			
+			
+			
  public BinaryTree get(Integer key)
  {	if(this.key==null)
-	 return null;
+	 return this;
  else if(key==this.key)
 	 return this;
 	 
@@ -36,10 +51,12 @@ if(this.key==null)
 	this.value=value;
 	}
 else if(key>this.key){
+	if(right==null)
 	right=new BinaryTree();
 	right.put(key, value);
 }
 else if(key<this.key){
+	if(left==null)
 	left= new BinaryTree();
 	left.put(key, value);}
 else
