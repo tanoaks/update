@@ -12,6 +12,15 @@ public class Tree {
 		this.key=key;
 		colour=this.colour;
 	}
+	 
+	 boolean getcolour(Object colour)
+	 {	if (colour==null)
+		 return false;
+	 if((Boolean)colour==true)
+		 return true;
+	 else 
+		 return false;
+	 }
 	void flipColour(Tree h)
 	{
 		
@@ -58,11 +67,18 @@ public class Tree {
 		h.value=val;	
 		}
 		  
-		
+		if(!getcolour(h.left.colour)&&getcolour(h.right.colour))
+		{shiftLeft(h);}
+		if(getcolour(h.colour)&&getcolour(h.left.colour))
+		{shiftRight(h);}
+		if(!getcolour(h.colour)&&getcolour(h.left.colour)&&getcolour(h.right.colour))
+		{flipColour(h);}
 		
 		
 	return 	 h;
 	}
 	void get(int a)
-	{}
+	{
+		
+	}
 }

@@ -14,7 +14,7 @@ public class LinkedList<Item> implements Iterable<Item> {
 		array=(Item[])new Object[size];
 	}
 	
-	
+	//hi
 	@SuppressWarnings("unchecked")
 	void push(Item a)
 	{
